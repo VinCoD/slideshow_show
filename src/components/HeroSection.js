@@ -6,20 +6,19 @@ const images = [
   'https://source.unsplash.com/random/1600x902',
 ]
 
-const App = () => {
+const HeroSection = () => {
   const [currentImage, setCurrentImage] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((currentImage + 1) % images.length)
-    }, 2000)
+    }, 5000)
 
     return () => clearInterval(interval)
   }, [currentImage])
 
   return (
     <div
-      
       className="relative h-screen flex items-center justify-center"
       style={{ backgroundImage: `url(${images[currentImage]})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
@@ -31,4 +30,4 @@ const App = () => {
   )
 }
 
-export default App
+export default HeroSection
